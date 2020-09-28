@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="component-builder">
+<ruleset name="topphp-huawei">
     <description>The coding standard of this package</description>
     <arg value="p" />
 
