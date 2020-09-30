@@ -28,6 +28,40 @@ function ModerationText()
 }
 ```
 
+#### 获取vod点播资源列表和详情
+```php
+<?php
+  public function testVodList()
+    {
+        $vodConfig = new VodConfig();
+        $vodConfig->setAk('');
+        $vodConfig->setSk('');
+        $vodConfig->setProjectId('');
+        $vodConfig->setVodHost('vod.cn-north-4.myhuaweicloud.com');
+        $vodClient = new VodClient($vodConfig);
+
+        $req = new QueryAssetListReq();
+        $rsp = $vodClient->queryAssetList($req);
+        echo $rsp->getBody();
+    }
+
+    public function testVodDetail()
+    {
+        $vodConfig = new VodConfig();
+        $vodConfig->setAk('');
+        $vodConfig->setSk('');
+        $vodConfig->setProjectId('');
+        $vodConfig->setVodHost('vod.cn-north-4.myhuaweicloud.com');
+        $vodClient = new VodClient($vodConfig);
+
+        $req = new QueryAssetDetailReq();
+        $req->setAssetId('1d9e9f555b07f053d2588d0ccd0580bb');
+        $req->setCategories(array('base_info', 'review_info'));
+
+        $rsp = $vodClient->queryAssetDetail($req);
+        echo $rsp->getBody();
+    }
+```
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
