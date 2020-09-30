@@ -24,7 +24,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Topphp\\TopphpHuawei\\": "src"
+            "Topphp\\TopphpHuawei\\": "src/",
+            "hwcvod\\": "src/hwcvod/"
         }
     },
     "autoload-dev": {

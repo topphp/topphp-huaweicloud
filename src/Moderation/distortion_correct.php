@@ -32,8 +32,8 @@ function distortion_correct($token, $image, $url, $correction = true)
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_NOBODY, FALSE);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_NOBODY, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($curl, CURLOPT_TIMEOUT, 5);
 
@@ -43,7 +43,6 @@ function distortion_correct($token, $image, $url, $correction = true)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         // 验证服务调用返回的状态是否成功，如果为2xx, 为成功, 否则失败。
         if (status_success($status)) {
             return $response;
@@ -53,8 +52,6 @@ function distortion_correct($token, $image, $url, $correction = true)
         }
     }
     curl_close($curl);
-
-
 }
 
 /**
@@ -98,16 +95,13 @@ function distortion_correct_aksk($_ak, $_sk, $image, $url, $correction = true)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         // 验证服务调用返回的状态是否成功，如果为2xx, 为成功, 否则失败。
         if ($status == status_success($status)) {
             return $response;
         } else {
-
             echo "Http status is: " . $status . "\n";
             echo $response;
         }
-
     }
     curl_close($curl);
 }

@@ -19,11 +19,11 @@ function batch_jobs($token, $urls, $categories)
     }
 
     $jobId = $jobResult['result']['job_id'];
-    echo "Process job id is :" . $jobId . "\n";;
+    echo "Process job id is :" . $jobId . "\n";
+    ;
 
     $retryTimes = 0;
     while (true) {
-
         // 获取任务解析的结果
         $resultObj = get_result($endPoint, $token, $jobId);
         if (!status_success($resultObj['status'])) {
@@ -43,9 +43,7 @@ function batch_jobs($token, $urls, $categories)
             sleep(2);
             continue;
         }
-
     }
-
 }
 
 
@@ -152,7 +150,6 @@ function batch_jobs_aksk($_ak, $_sk, $urls, $categories)
 
     $retryTimes = 0;
     while (true) {
-
         // 获取任务的执行结果
         $resultObj = get_result_aksk($endPoint, $signer, $jobId);
 
@@ -173,7 +170,6 @@ function batch_jobs_aksk($_ak, $_sk, $urls, $categories)
             sleep(2);
             continue;
         }
-
     }
 }
 
@@ -209,7 +205,6 @@ function _batch_jobs_aksk($endPoint, $signer, $urls, $categories)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         $response           = json_decode($response, true);
         $response['status'] = $status;
         return $response;
@@ -248,7 +243,6 @@ function get_result_aksk($endPoint, $signer, $jobId)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         $response           = json_decode($response, true);
         $response['status'] = $status;
         return $response;

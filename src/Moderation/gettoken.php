@@ -12,7 +12,8 @@ namespace Topphp\TopphpHuawei\Moderation;
 function get_token($username, $password, $domainName)
 {
     $requestBody = requestbody_get_token($username, $password, $domainName);
-    $_url        = "https://" . IAM_ENPOINT . AIS_TOKEN;;
+    $_url        = "https://" . IAM_ENPOINT . AIS_TOKEN;
+    ;
     $curl    = curl_init();
     $headers = array(
         "Content-Type" => "application/json",
@@ -36,7 +37,6 @@ function get_token($username, $password, $domainName)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         // 验证服务调用返回的状态是否成功，如果为200, 为成功, 否则失败。
         if (substr($status, 0, 1) != 2) {
             echo "Http status is: " . $status . "\n";
@@ -86,7 +86,6 @@ function requestbody_get_token($username, $password, $domainName)
         )
     );
     return urldecode(json_encode($param));
-
 }
 
 /**
@@ -105,4 +104,3 @@ function get_token_by_headers($headers)
         }
     }
 }
-

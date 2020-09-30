@@ -42,7 +42,6 @@ class clarity_detect
         if ($status == 0) {
             echo curl_error($curl);
         } else {
-
             // 验证服务调用返回的状态是否成功，如果为2xx, 为成功, 否则失败。
             if (status_success($status)) {
                 return $response;
@@ -99,7 +98,6 @@ class clarity_detect
             if (status_success($status)) {
                 return $response;
             } else {
-
                 echo "Http status is: " . $status . "\n";
                 echo $response;
             }

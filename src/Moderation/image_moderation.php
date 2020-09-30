@@ -45,7 +45,6 @@ function image_content($token, $data, $url, $categories, $threshold)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         // 验证服务调用返回的状态是否成功，如果为2xx, 为成功, 否则失败。
         if (status_success($status)) {
             return $response;
@@ -53,11 +52,8 @@ function image_content($token, $data, $url, $categories, $threshold)
             echo "Http status is: " . $status . "\n";
             echo $response;
         }
-
     }
     curl_close($curl);
-
-
 }
 
 /**
@@ -106,16 +102,13 @@ function image_content_aksk($_ak, $_sk, $data, $url, $categories, $threshold)
     if ($status == 0) {
         echo curl_error($curl);
     } else {
-
         // 验证服务调用返回的状态是否成功，如果为2xx, 为成功, 否则失败。
         if (status_success($status)) {
             return $response;
         } else {
-
             echo "Http status is: " . $status . "\n";
             echo $response;
         }
-
     }
     curl_close($curl);
 }
